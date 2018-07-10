@@ -1,0 +1,105 @@
+# This is the non-sensitive configuration for Bender, the gopherbot used
+# for development.
+
+# The administrator of this robot, can be retrieved in plugins with
+# GetBotAttribute("admin")
+AdminContact: "David Parsley, <parsley@linuxjedi.org>"
+
+# If a plugin doesn't specify otherwise it will be active in these channels;
+# defaults to all channels
+DefaultChannels: [ "general", "random", "chat", "botdev" ]
+
+# One-character alias the bot can be called by. Note: not all single characters
+# are supported. If your robot doesn't respond to e.g. ";ping", try changing
+# the Alias to something other than ";". Popular alternatives: ":", "!", "*".
+Alias: "\\"
+
+# List of external plugins/jobs to configure; generally scripts using a gopherbot
+# script library. The robot will look for plugins in the installation directory
+# first, then the local config directory.
+ExternalPlugins:
+- Name: weather
+  Path: plugins/weather.rb
+- Name: echo
+  Path: plugins/samples/echo.sh
+- Name: pythondemo
+  Path: plugins/samples/pythondemo.py
+- Name: rubydemo
+  Path: plugins/samples/rubydemo.rb
+- Name: format
+  Path: plugins/samples/format.sh
+- Name: formatpy
+  Path: plugins/samples/format.py
+- Name: formatruby
+  Path: plugins/samples/format.rb
+- Name: chuck
+  Path: plugins/chuck.rb
+- Name: update
+  Path: plugins/update.sh
+ExternalJobs:
+- Name: hello
+  Description: "You know - the usual!"
+- Name: githubci
+  Description: "Job triggered by git pushes"
+ExternalTasks:
+- Name: ansible-playbook
+  Description: Ansible playbook (ansible-playbook)
+  Path: /usr/bin/ansible-playbook
+- Name: ansible
+  Description: Ansible
+  Path: /usr/bin/ansible
+
+# If a job doesn't specify otherwise, these are the defaults for StatusChannel
+# and channels where jobs can be run
+DefaultJobChannel: jobs
+# Job names and paths to the script. NOTE: no reason why multiple jobs
+# can't have the same path. Job config in conf/jobs/<job>.yaml can differ.
+# Timezone for scheduled jobs
+TimeZone: "America/New_York"
+# Job scheduling with github.com/robfig/cron
+ScheduledTasks:
+- Name: hello
+  Schedule: "@every 5m" # see: https://godoc.org/github.com/robfig/cron
+  Arguments: # an array of strings; up to the job to parse numbers & bools
+  - "Hello, World !!!"
+# - Job: hello
+#   Schedule: "0 */5 * * * *"
+
+DefaultMessageFormat: Raw
+# Users the bot should never listen to
+#IgnoreUsers: [ "otherbot", "slackbot" ]
+
+# Initial log level, one of trace, debug, info, warn, error. See 'help log'
+# for help on changing the log level and viewing contents of the log.
+LogLevel: info
+#LogLevel: trace
+#LogLevel: debug
+
+# The robot's email address (used in From:)
+#Email: robbie@robot.com
+# Configuration for sending out email. For Authtype: none, User and Password
+# can be left out. Note that sending email will fail if Email isn't set.
+#MailConfig:
+#  Mailhost: <somehost:port>
+#  Authtype: <plain|none>
+#  User: <authuser>
+#  Password: <password>
+
+# Specify the mechanism for storing the robots memories. Currently only a
+# simple file-based brain is available. Be sure that
+# <local config dir>/brain is writable by the user the robot runs as.
+# Brain: file
+# BrainConfig:
+#   BrainDirectory: brain
+
+# Use Google Authenticator TOTP by default for elevated commands. To use:
+# - Ask the robot to 'send launch codes', and it will send you (one time)
+#   a string for configuring your Google Authencticator app, and store it's
+#   own copy in the robot's brain. You can verify it works with the
+#   'check launch code <code>' command.
+# - To require a token to be provided before running a given plugin command,
+#   add the elevated command(s) to the plugin's ElevatedCommands list, or to
+#   ElevateImmediateCommands for commands that require elevation every time
+#   regardless of timeout.
+# - Configure the elevator by overriding the config for the plugin
+DefaultElevator: duo

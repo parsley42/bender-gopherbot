@@ -1,0 +1,5 @@
+---
+Config:
+#  APIKey: (stored in brain)
+  TemperatureUnits: imperial
+  DefaultCountry: us

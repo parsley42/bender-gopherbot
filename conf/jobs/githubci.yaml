@@ -1,0 +1,10 @@
+---
+User: parsley # override this with your own local config if needed
+Path: jobs/githubci.sh
+Verbose: true
+Triggers:
+- User: github
+  Channel: ljdev
+  Regex: 'new commit.*github.com\/(.*)\/tree\/(.*)\|'
+Channel: general
+# Arguments: # TODO: only if this job will be interactively ran with 'run job ...'
