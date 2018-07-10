@@ -7,6 +7,7 @@ source $GOPHER_INSTALLDIR/lib/gopherbot_v1.sh
 
 PHRASE=$1
 
+#set -x
 # PHRASE is a paramter specified when the job is run, SECRETSAUCE comes
 # from a parameter stored in the brain, and FIXEDSTRING is a configured
 # parameter in conf/jobs/hello.yaml
@@ -14,5 +15,5 @@ Say "$PHRASE - also, $SECRETSAUCE: $FIXEDSTRING"
 Log "Info" "I said $PHRASE, and $SECRETSAUCE: $FIXEDSTRING"
 ls -Fla /tmp >&2
 # Listing from WorkingDirectory
-AddTask ls -Fla
+AddTask ls -laF
 # exit 1

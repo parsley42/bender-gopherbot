@@ -48,6 +48,9 @@ ExternalTasks:
 - Name: ansible
   Description: Ansible
   Path: /usr/bin/ansible
+- Name: ls
+  Description: the standard Unix ls, for testing
+  Path: /usr/bin/ls
 
 # If a job doesn't specify otherwise, these are the defaults for StatusChannel
 # and channels where jobs can be run
