@@ -41,6 +41,8 @@ ExternalJobs:
   Description: "You know - the usual!"
 - Name: githubci
   Description: "Job triggered by git pushes"
+- Name: ssh-init
+  Description: Set up an ssh-agent for the robot
 ExternalTasks:
 - Name: ansible-playbook
   Description: Ansible playbook (ansible-playbook)
@@ -48,6 +50,12 @@ ExternalTasks:
 - Name: ansible
   Description: Ansible
   Path: /usr/bin/ansible
+- Name: ssh
+  Description: Secure shell for remoting in to hosts
+  Path: /usr/bin/ssh
+- Name: ssh-agent
+  Description: ssh agent command for terminating the agent
+  Path: /usr/bin/ssh-agent
 - Name: ls
   Description: the standard Unix ls, for testing
   Path: /usr/bin/ls
@@ -62,7 +70,7 @@ TimeZone: "America/New_York"
 # Job scheduling with github.com/robfig/cron
 ScheduledTasks:
 - Name: hello
-  Schedule: "@every 5m" # see: https://godoc.org/github.com/robfig/cron
+  Schedule: "@every 20m" # see: https://godoc.org/github.com/robfig/cron
   Arguments: # an array of strings; up to the job to parse numbers & bools
   - "Hello, World !!!"
 # - Job: hello

@@ -5,7 +5,7 @@ Channel: jobs
 Path: jobs/hello.sh
 Verbose: true
 User: parsley
-WorkingDirectory: /home/parse
+WorkingDirectory: ../aws-linuxjedi
 Arguments:
 - Label: What to say
   Regex: '[\w\s-_.!?]+'

@@ -1,0 +1,8 @@
+---
+# DM the robot with `store parameter ssh-init BOT_SSH_PHRASE=<bot ssh passphrase>`,
+# otherwise this will fail
+PrivateNameSpace: true
+Path: jobs/ssh-init.sh
+Parameters:
+- Name: KEYNAME
+  Value: bender_rsa

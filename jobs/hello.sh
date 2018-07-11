@@ -16,4 +16,8 @@ Log "Info" "I said $PHRASE, and $SECRETSAUCE: $FIXEDSTRING"
 ls -Fla /tmp >&2
 # Listing from WorkingDirectory
 AddTask ls -laF
+# Set up, use, and remove ssh-agent
+AddTask ssh-init
+AddTask ssh parse@localhost whoami
+AddTask ssh-agent -k
 # exit 1
