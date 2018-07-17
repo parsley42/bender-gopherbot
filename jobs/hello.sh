@@ -7,6 +7,15 @@ source $GOPHER_INSTALLDIR/lib/gopherbot_v1.sh
 
 PHRASE=$1
 
+if Exclusive "world" "true"
+then
+    Say "Hooray! I get to run! $GOPHER_CALLER_ID"
+else
+    Say "Darn, I have to wait. $GOPHER_CALLER_ID"
+    exit 0
+fi
+sleep 4
+
 #set -x
 # PHRASE is a paramter specified when the job is run, SECRETSAUCE comes
 # from a parameter stored in the brain, and FIXEDSTRING is a configured
@@ -14,6 +23,7 @@ PHRASE=$1
 Say "$PHRASE - also, $SECRETSAUCE: $FIXEDSTRING"
 Log "Info" "I said $PHRASE, and $SECRETSAUCE: $FIXEDSTRING"
 ls -Fla /tmp >&2
+dmesg | head -30 # go beyond 4k
 # Listing from WorkingDirectory
 AddTask ls -laF
 AddTask ssh-init
