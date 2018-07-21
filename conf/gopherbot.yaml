@@ -53,6 +53,9 @@ ExternalTasks:
 - Name: ssh
   Description: Secure shell for remoting in to hosts
   Path: /usr/bin/ssh
+- Name: git
+  Description: One SCM to Rule Them All
+  Path: /usr/bin/git
 - Name: ssh-agent
   Description: ssh agent command for terminating the agent
   Path: /usr/bin/ssh-agent
@@ -82,9 +85,13 @@ DefaultMessageFormat: Raw
 
 # Initial log level, one of trace, debug, info, warn, error. See 'help log'
 # for help on changing the log level and viewing contents of the log.
-LogLevel: info
-#LogLevel: trace
+#LogLevel: info
+LogLevel: trace
 #LogLevel: debug
+
+HistoryProvider: file
+HistoryConfig:
+  Directory: /var/lib/gopherbot
 
 # The robot's email address (used in From:)
 #Email: robbie@robot.com
