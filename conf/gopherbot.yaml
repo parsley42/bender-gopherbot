@@ -1,5 +1,26 @@
 # This is the non-sensitive configuration for Bender, the gopherbot used
 # for development.
+# List of users that can issue admin commands like reload, quit. Should be
+# a list of user handles / nicks.
+AdminUsers: [ "parse", "parsley", "alice" ]
+
+# Port to listen on for http/JSON api calls, for external plugins
+LocalPort: 8888
+
+# Token for Bender
+Protocol: slack
+ProtocolConfig:
+  MaxMessageSplit: 2
+
+# Specify the mechanism for storing the robots memories.
+Brain: dynamo
+BrainConfig:
+  TableName: Bender
+  Region: "us-east-1"
+# Brain: file
+# BrainConfig:
+#   BrainDirectory: brain
+EncryptBrain: true
 
 # The administrator of this robot, can be retrieved in plugins with
 # GetBotAttribute("admin")
