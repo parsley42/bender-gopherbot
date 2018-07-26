@@ -62,8 +62,6 @@ ExternalJobs:
   Description: "You know - the usual!"
 - Name: githubci
   Description: "Job triggered by git pushes"
-- Name: ssh-init
-  Description: Set up an ssh-agent for the robot
 ExternalTasks:
 - Name: ansible-playbook
   Description: Ansible playbook (ansible-playbook)
@@ -83,6 +81,12 @@ ExternalTasks:
 - Name: ls
   Description: the standard Unix ls, for testing
   Path: /usr/bin/ls
+- Name: ssh-init
+  Description: Set up an ssh-agent for the robot
+  Path: tasks/ssh-init.sh
+  Parameters:
+  - Name: KEYNAME
+    Value: bender_rsa
 
 # If a job doesn't specify otherwise, these are the defaults for StatusChannel
 # and channels where jobs can be run
@@ -106,8 +110,8 @@ DefaultMessageFormat: Raw
 
 # Initial log level, one of trace, debug, info, warn, error. See 'help log'
 # for help on changing the log level and viewing contents of the log.
-#LogLevel: info
-LogLevel: trace
+LogLevel: info
+#LogLevel: trace
 #LogLevel: debug
 
 HistoryProvider: file
