@@ -41,6 +41,12 @@ Alias: "\\"
 ExternalPlugins:
 - Name: weather
   Path: plugins/weather.rb
+  Description: A plugin using OpenWeatherMap to give the weather
+  Parameters:
+  - Name: TEMP_UNITS
+    Value: imperial # or 'metric'
+  - Name: DEFAULT_COUNTRY
+    Value: 'us' # or other ISO 3166 country code
 - Name: echo
   Path: plugins/samples/echo.sh
 - Name: pythondemo
@@ -56,13 +62,30 @@ ExternalPlugins:
 - Name: chuck
   Path: plugins/chuck.rb
 - Name: update
+  Description: A plugin that triggers the updatecfg job
   Path: plugins/update.sh
 ExternalJobs:
 - Name: hello
   Description: "You know - the usual!"
+  Path: jobs/hello.sh
+  Parameters:
+  - Name: FIXEDSTRING
+    Value: "Don't go changing on me!"
+  - Name: JOBPHRASE
+    Value: "Hello, Job Runner!"
 - Name: githubci
   Description: "Job triggered by git pushes"
+  Path: jobs/githubci.sh
+- Name: updatecfg
+  Description: A job that updates the robot's configuration from git
+  Path: jobs/updatecfg.sh
 ExternalTasks:
+- Name: notify
+  Description: Send a message to a user, generally as a FailTask
+  Path: tasks/notify.sh
+- Name: dmnotify
+  Description: Send a DM to a user, generally as a FailTask
+  Path: tasks/dmnotify.sh
 - Name: ansible-playbook
   Description: Ansible playbook (ansible-playbook)
   Path: /usr/bin/ansible-playbook
@@ -81,6 +104,9 @@ ExternalTasks:
 - Name: ls
   Description: the standard Unix ls, for testing
   Path: /usr/bin/ls
+- Name: fail
+  Description: task that always fails, for debugging
+  Path: /bin/false
 - Name: ssh-init
   Description: Set up an ssh-agent for the robot
   Path: tasks/ssh-init.sh
@@ -98,7 +124,7 @@ TimeZone: "America/New_York"
 # Job scheduling with github.com/robfig/cron
 ScheduledTasks:
 - Name: hello
-  Schedule: "@every 20m" # see: https://godoc.org/github.com/robfig/cron
+  Schedule: "@every 5m" # see: https://godoc.org/github.com/robfig/cron
   Arguments: # an array of strings; up to the job to parse numbers & bools
   - "Hello, World !!!"
 # - Job: hello

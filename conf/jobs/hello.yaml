@@ -1,17 +1,8 @@
 ---
 # hello.yaml - job configuration for the hello job
-Description: A fairly standard Hello, World
 Channel: jobs
-Path: jobs/hello.sh
 Verbose: true
-User: parsley
 Arguments:
 - Label: What to say
   Regex: '[\w\s-_.!?]+'
-Parameters:
-- Name: FIXEDSTRING
-  Value: "Don't go changing on me!"
-- Name: PHRASE
-  Value: "Hello, Job Runner!"
-
 HistoryLogs: 7

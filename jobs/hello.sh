@@ -16,16 +16,21 @@ else
 fi
 sleep 4
 
+ExtendNamespace world 14
+
+FailTask dmnotify parsley "Your trivial hello world job failed"
+
 #set -x
 # PHRASE is a paramter specified when the job is run, SECRETSAUCE comes
 # from a parameter stored in the brain, and FIXEDSTRING is a configured
 # parameter in conf/jobs/hello.yaml
-Say "$PHRASE - also, $SECRETSAUCE: $FIXEDSTRING"
+Say "$PHRASE - also, $SECRETSAUCE: $FIXEDSTRING ($JOBPHRASE)"
 Log "Info" "I said $PHRASE, and $SECRETSAUCE: $FIXEDSTRING"
 ls -Fla /tmp >&2
-dmesg | head -30 # go beyond 4k
+# dmesg | head -30 # go beyond 4k
 # Listing from WorkingDirectory
-AddTask ls -laF
 AddTask ssh-init
 AddTask ssh parse@localhost whoami
+# AddTask fail
+AddTask ls -laF
 # exit 1
