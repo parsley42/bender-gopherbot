@@ -70,9 +70,9 @@ ExternalJobs:
     Value: "Don't go changing on me!"
   - Name: JOBPHRASE
     Value: "Hello, Job Runner!"
-- Name: githubci
-  Description: "Job triggered by git pushes"
-  Path: jobs/githubci.sh
+# - Name: githubci
+#   Description: "Job triggered by git pushes"
+#   Path: jobs/githubci.sh
 - Name: updatecfg
   Description: A job that updates the robot's configuration from git
   Path: jobs/updatecfg.sh
