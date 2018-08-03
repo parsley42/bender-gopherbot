@@ -101,8 +101,9 @@ ExternalTasks:
   Description: Send a DM to a user, generally as a FailTask
   Path: tasks/dmnotify.sh
 - Name: ansible-playbook
-  Description: Ansible playbook (ansible-playbook)
-  Path: task/ansible-playbook.sh
+  NameSpace: ansible
+  Description: Ansible playbook (ansible-playbook) runner with vault passphrase helper
+  Path: tasks/ansible-playbook.sh
 - Name: ansible
   Description: Ansible
   Path: /usr/bin/ansible
