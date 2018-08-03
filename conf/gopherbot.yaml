@@ -122,6 +122,9 @@ ExternalTasks:
 - Name: ssh-init
   Description: Set up an ssh-agent for the robot
   Path: tasks/ssh-init.sh
+- Name: ssh-scan
+  Description: Helper script for adding ssh host keys to known_hosts
+  Path: tasks/ssh-scan.sh
 
 # If a job doesn't specify otherwise, these are the defaults for StatusChannel
 # and channels where jobs can be run
