@@ -122,9 +122,6 @@ ExternalTasks:
 - Name: ssh-init
   Description: Set up an ssh-agent for the robot
   Path: tasks/ssh-init.sh
-  Parameters:
-  - Name: KEYNAME
-    Value: bender_rsa
 
 # If a job doesn't specify otherwise, these are the defaults for StatusChannel
 # and channels where jobs can be run
