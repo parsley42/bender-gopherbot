@@ -62,6 +62,12 @@ ExternalPlugins:
   Description: A plugin that triggers the updatecfg job
   Path: plugins/update.sh
 ExternalJobs:
+- Name: cloud9wks
+  Description: Job to launch a Cloud9 Instance
+  Path: jobs/c9wks.sh
+  Parameters:
+  - Name: DEVHOST
+    Value: parsley
 - Name: hello
   Description: "You know - the usual!"
   Path: jobs/hello.sh
@@ -77,6 +83,15 @@ ExternalJobs:
   Description: A job that updates the robot's configuration from git
   Path: jobs/updatecfg.sh
 ExternalTasks:
+- Name: git-sync
+  Description: Simple script to clone or pull a repository
+  Path: tasks/git-sync.sh
+- Name: build-c9wks
+  Description: Task that launches and configures the Cloud9 instance
+  Path: tasks/build-c9wks.sh
+  Parameters:
+  - Name: KEYNAME
+    Value: bender
 - Name: notify
   Description: Send a message to a user, generally as a FailTask
   Path: tasks/notify.sh
@@ -85,7 +100,7 @@ ExternalTasks:
   Path: tasks/dmnotify.sh
 - Name: ansible-playbook
   Description: Ansible playbook (ansible-playbook)
-  Path: /usr/bin/ansible-playbook
+  Path: task/ansible-playbook.sh
 - Name: ansible
   Description: Ansible
   Path: /usr/bin/ansible
@@ -113,7 +128,7 @@ ExternalTasks:
 
 # If a job doesn't specify otherwise, these are the defaults for StatusChannel
 # and channels where jobs can be run
-DefaultJobChannel: jobs
+DefaultJobChannel: bender-jobs
 # Job names and paths to the script. NOTE: no reason why multiple jobs
 # can't have the same path. Job config in conf/jobs/<job>.yaml can differ.
 # Timezone for scheduled jobs
