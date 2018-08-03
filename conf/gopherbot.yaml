@@ -66,8 +66,6 @@ ExternalJobs:
   Description: Job to launch a Cloud9 Instance
   Path: jobs/c9wks.sh
   Parameters:
-  - Name: DEVHOST
-    Value: parsley
   - Name: AWS_REGION
     Value: us-east-1
 - Name: hello
