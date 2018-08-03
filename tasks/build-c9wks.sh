@@ -14,7 +14,7 @@ case "$ACTION" in
     AddTask ansible-playbook c9devel.yaml -e target=$DEVHOST
     ;;
 *)
-    SetWorkingDirectory c9wks/aws-devel
+    SetWorkingDirectory c9wks/$DEVHOST/aws-devel
     AddTask build-c9wks launch
     AddTask build-c9wks configure
     ;;
