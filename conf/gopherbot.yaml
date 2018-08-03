@@ -150,10 +150,6 @@ DefaultMessageFormat: Raw
 #LogLevel: trace
 LogLevel: debug
 
-HistoryProvider: file
-HistoryConfig:
-  Directory: /var/lib/gopherbot
-
 # The robot's email address (used in From:)
 #Email: robbie@robot.com
 # Configuration for sending out email. For Authtype: none, User and Password
