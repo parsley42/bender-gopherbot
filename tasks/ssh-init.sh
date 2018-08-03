@@ -45,7 +45,7 @@ then
         echo "$MESSAGE" >&2
         exit 1
     fi
-    export SSH_ASKPASS=$GOPHER_INSTALLDIR/ssh-askpass.sh
+    export SSH_ASKPASS=$GOPHER_CONFIGDIR/scripts/ssh-askpass.sh
     export DISPLAY=""
 fi
 
