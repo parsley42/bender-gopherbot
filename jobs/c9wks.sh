@@ -24,6 +24,7 @@ ExtendNamespace github.com/parsley42/aws-devel
 
 # Set up the pipeline; all tasks must be defined in gopherbot.yaml
 AddTask ssh-init
+AddTask ssh-scan bitbucket.org
 AddTask git-sync git@bitbucket.org:lnxjedi/linuxjedi-private.git linuxjedi-private
 AddTask git-sync https://github.com/parsley42/aws-devel.git aws-devel
 AddTask git-sync https://github.com/parsley42/aws-linuxjedi.git aws-linuxjedi
