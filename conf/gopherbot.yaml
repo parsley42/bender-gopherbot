@@ -36,6 +36,9 @@ Alias: "\\"
 # script library. The robot will look for plugins in the installation directory
 # first, then the local config directory.
 ExternalPlugins:
+- Name: code
+  Description: A convenience plugin for launching code-related jobs
+  Path: plugins/code.sh
 - Name: weather
   Path: plugins/weather.rb
   Description: A plugin using OpenWeatherMap to give the weather
