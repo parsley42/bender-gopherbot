@@ -1,6 +1,5 @@
 ---
 # hello.yaml - job configuration for the hello job
-Verbose: true
 Arguments:
 - Label: What to say
   Regex: '[\w\s-_.!?]+'
