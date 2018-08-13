@@ -16,8 +16,6 @@ else
 fi
 sleep 4
 
-ExtendNamespace world 14
-
 FailTask dmnotify parsley "Your trivial hello world job failed"
 
 #set -x
