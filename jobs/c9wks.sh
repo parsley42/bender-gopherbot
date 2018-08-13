@@ -5,13 +5,23 @@
 source $GOPHER_INSTALLDIR/lib/gopherbot_v1.sh
 
 # Name of the instance to build
-DEVHOST=$(GetSenderAttribute name)
-# Export value for the rest of the pipeline
-SetParameter DEVHOST $DEVHOST
+if [ -z "$DEVHOST" ]
+then
+    DEVHOST=$(GetSenderAttribute name)
+    # Export value for the rest of the pipeline
+    SetParameter DEVHOST $DEVHOST
+fi
+if [ -z "$DEVIMG" ]
+then
+    DEVIMG=amzn2devel
+    # Export value for the rest of the pipeline
+    SetParameter DEVIMG $DEVIMG
+fi
 
 # Don't queue if this build in progress, just exit
 if ! Exclusive $DEVHOST false
 then
+    Log Warn "Job already in progress, exiting"
     exit 0
 fi
 

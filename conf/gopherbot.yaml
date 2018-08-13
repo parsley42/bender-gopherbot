@@ -68,6 +68,10 @@ ExternalJobs:
   Parameters:
   - Name: AWS_REGION
     Value: us-east-1
+  - Name: DEVHOST
+    Value: f28devel
+  - Name: DEVIMG
+    Value: f28devel
 - Name: hello
   Description: "You know - the usual!"
   Path: jobs/hello.sh
