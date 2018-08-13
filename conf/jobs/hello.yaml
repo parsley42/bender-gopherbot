@@ -1,6 +1,5 @@
 ---
 # hello.yaml - job configuration for the hello job
-Channel: jobs
 Verbose: true
 Arguments:
 - Label: What to say
