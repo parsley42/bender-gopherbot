@@ -54,18 +54,8 @@ ExternalPlugins:
     Value: 'us' # or other ISO 3166 country code
 - Name: echo
   Path: plugins/samples/echo.sh
-# - Name: pythondemo
-#   Path: plugins/samples/pythondemo.py
-# - Name: rubydemo
-#   Path: plugins/samples/rubydemo.rb
-# - Name: format
-#   Path: plugins/samples/format.sh
-# - Name: formatpy
-#   Path: plugins/samples/format.py
-# - Name: formatruby
-#   Path: plugins/samples/format.rb
-# - Name: chuck
-#   Path: plugins/chuck.rb
+- Name: chuck
+  Path: plugins/chuck.rb
 - Name: update
   Description: A plugin that triggers the updatecfg job
   Path: plugins/update.sh
