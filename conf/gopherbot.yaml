@@ -59,8 +59,8 @@ ExternalPlugins:
 #   Path: plugins/samples/format.py
 # - Name: formatruby
 #   Path: plugins/samples/format.rb
-- Name: chuck
-  Path: plugins/chuck.rb
+# - Name: chuck
+#   Path: plugins/chuck.rb
 - Name: update
   Description: A plugin that triggers the updatecfg job
   Path: plugins/update.sh
