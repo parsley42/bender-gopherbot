@@ -28,7 +28,7 @@ if repository in repodata:
         bot.Say("No 'type' specified for %s" % repository)
         exit()
 else:
-    bot.Say("Repository '%s' not found in 'repositories.yaml'" % repository)
+    bot.Log("Debug", "Ignoring update on '%s', not listed in repositories.yaml" % repository)
     exit()
 
 bot.Say("Found '%s' in 'repositories.yaml', type '%s'" % (repository, repotype))
