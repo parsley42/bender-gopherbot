@@ -3,9 +3,9 @@
 import os
 import sys
 sys.path.append("%s/lib" % os.getenv("GOPHER_INSTALLDIR"))
-from gopherbot_v1 import Robot
+#from gopherbot_v1 import Robot
 
-bot = Robot()
+#bot = Robot()
 
 from yaml import load
 
@@ -23,10 +23,13 @@ if repository in repodata:
     if "type" in repoconf:
         repotype = repoconf["type"]
     else:
-        bot.Say("No 'type' specified for %s" % repository)
+        # bot.Say("No 'type' specified for %s" % repository)
+        print("No 'type' specified for %s" % repository)
         exit()
 else:
-    bot.Say("Repository '%s' not found in 'repositories.yaml'" % repository)
+    print("Repository '%s' not found in 'repositories.yaml'" % repository)
+#   bot.Say("Repository '%s' not found in 'repositories.yaml'" % repository)
     exit()
 
-bot.Say("Found '%s' in 'repositories.yaml', type '%s'" % (repository, repotype))
+print("Found '%s' in 'repositories.yaml', type '%s'" % (repository, repotype))
+#bot.Say("Found '%s' in 'repositories.yaml', type '%s'" % (repository, repotype))
