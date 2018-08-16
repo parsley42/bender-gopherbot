@@ -19,7 +19,7 @@ if repository in repodata:
     repoconf = repodata[repository]
     if "type" in repoconf:
         repotype = repoconf["type"]
-    else
+    else:
         bot.Say("No 'type' specified for %s" % repository)
         exit()
 else:
