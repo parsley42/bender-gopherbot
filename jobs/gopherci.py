@@ -9,6 +9,9 @@ bot = Robot()
 
 from yaml import load
 
+# Pop off the executable path
+sys.argv.pop(0)
+
 repository = sys.argv.pop(0)
 branch = sys.argv.pop(0)
 
