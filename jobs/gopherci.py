@@ -15,7 +15,7 @@ sys.argv.pop(0)
 repository = sys.argv.pop(0)
 branch = sys.argv.pop(0)
 
-repofile = open("%s/conf/repodata.yaml" % os.getenv("GOPHER_CONFIGDIR"))
+repofile = open("%s/conf/repositories.yaml" % os.getenv("GOPHER_CONFIGDIR"))
 yamldata = repofile.read()
 
 repodata = load(yamldata)
