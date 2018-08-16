@@ -4,5 +4,5 @@ Triggers:
 - User: github
   Channel: ljdev
   Regex: 'new commit.*(github.com\/.*)\/tree\/(.*)\|'
-Channel: general
+#Channel: general
 # Arguments: # TODO: only if this job will be interactively ran with 'run job ...'
