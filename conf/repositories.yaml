@@ -5,3 +5,7 @@ bitbucket.org/lnxjedi/linuxjedi-private:
   type: none
 github.com/parsley42/aws-linuxjed:
   type: none
+github.com/lnxjedi/gopherbot:
+  type: localbuild
+github.com/parsley42/bender-gopherbot:
+  type: none

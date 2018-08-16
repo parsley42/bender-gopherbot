@@ -63,6 +63,9 @@ ExternalJobs:
 - Name: gopherci
   Description: A job triggered by commit posts in Slack
   Path: jobs/gopherci.py
+- Name: localbuild
+  Description: Job spawned by gopherci to just clone a repo locally and run .gopherci/pipeline.sh
+  Path: jobs/localbuild.sh
 - Name: cloud9wks
   Description: Job to launch a Cloud9 Instance
   Path: jobs/c9wks.sh
@@ -88,9 +91,6 @@ ExternalJobs:
   Description: A job that updates the robot's configuration from git
   Path: jobs/updatecfg.sh
 ExternalTasks:
-- Name: localbuild
-  Description: Task for gopherci to just clone a repo locally and run .gopherci/pipeline.sh
-  Path: tasks/localbuild.sh
 - Name: git-sync
   Description: Simple script to clone or pull a repository
   Path: tasks/git-sync.sh
