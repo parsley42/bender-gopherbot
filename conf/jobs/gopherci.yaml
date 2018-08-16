@@ -1,4 +1,5 @@
 ---
+HistoryLogs: 14
 Triggers:
 - User: github
   Channel: ljdev
