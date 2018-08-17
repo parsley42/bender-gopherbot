@@ -94,6 +94,9 @@ ExternalTasks:
 - Name: git-sync
   Description: Simple script to clone or pull a repository
   Path: tasks/git-sync.sh
+- Name: localexec
+  Description: Simple utility for running scripts
+  Path: tasks/localexec.sh
 - Name: build-c9wks
   Description: Task that launches and configures the Cloud9 instance
   Path: tasks/build-c9wks.sh
