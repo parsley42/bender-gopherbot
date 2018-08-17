@@ -5,4 +5,8 @@ Triggers:
   Channel: ljdev
   Regex: 'new commit.*(github.com\/.*)\/tree\/(.*)\|'
 #Channel: general
-# Arguments: # TODO: only if this job will be interactively ran with 'run job ...'
+Arguments: # TODO: only if this job will be interactively ran with 'run job ...'
+- Label: repository
+  Regex: '[\w-.]+\/[\w-.]+\/[\w-.]+'
+- Label: branch
+  Regex: '[\w-.]+'
