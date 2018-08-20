@@ -14,5 +14,7 @@ github.com/lnxjedi/gopherbot:
     Value: parsley
   - Name: PATH
     Value: /home/robot/go/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/go/bin:/home/robot/bin
+  dependencies:
+  - github.com/parsley42/bender-gopherbot
 github.com/parsley42/bender-gopherbot:
   type: none
