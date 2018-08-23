@@ -60,12 +60,14 @@ ExternalPlugins:
   Description: A plugin that triggers the updatecfg job
   Path: plugins/update.sh
 ExternalJobs:
+# GopherCI jobs
 - Name: gopherci
   Description: A job triggered by commit posts in Slack
   Path: jobs/gopherci.py
 - Name: localtrusted
   Description: Job spawned by gopherci to just clone a repo locally and run .gopherci/pipeline.sh
   Path: jobs/localtrusted.py
+# /GopherCI jobs
 - Name: cloud9wks
   Description: Job to launch a Cloud9 Instance
   Path: jobs/c9wks.sh
@@ -91,52 +93,50 @@ ExternalJobs:
   Description: A job that updates the robot's configuration from git
   Path: jobs/updatecfg.sh
 ExternalTasks:
+# GopherCI tasks
 - Name: git-sync
   Description: Simple script to clone or pull a repository
   Path: tasks/git-sync.sh
 - Name: localexec
   Description: Simple utility for running scripts
   Path: tasks/localexec.sh
-- Name: build-c9wks
-  Description: Task that launches and configures the Cloud9 instance
-  Path: tasks/build-c9wks.sh
-  Parameters:
-  - Name: KEYNAME
-    Value: bender
+- Name: ansible-playbook
+  NameSpace: ansible
+  Description: Ansible playbook (ansible-playbook) runner with vault passphrase helper
+  Path: tasks/ansible-playbook.sh
 - Name: notify
   Description: Send a message to a user, generally as a FailTask
   Path: tasks/notify.sh
 - Name: dmnotify
   Description: Send a DM to a user, generally as a FailTask
   Path: tasks/dmnotify.sh
-- Name: ansible-playbook
-  NameSpace: ansible
-  Description: Ansible playbook (ansible-playbook) runner with vault passphrase helper
-  Path: tasks/ansible-playbook.sh
-- Name: ansible
-  Description: Ansible
-  Path: /usr/bin/ansible
-- Name: ssh
-  Description: Secure shell for remoting in to hosts
-  Path: /usr/bin/ssh
 - Name: git
   Description: One SCM to Rule Them All
   Path: /usr/bin/git
 - Name: ssh-agent
   Description: ssh agent command for terminating the agent
   Path: /usr/bin/ssh-agent
-- Name: ls
-  Description: the standard Unix ls, for testing
-  Path: /usr/bin/ls
-- Name: fail
-  Description: task that always fails, for debugging
-  Path: /bin/false
 - Name: ssh-init
   Description: Set up an ssh-agent for the robot
   Path: tasks/ssh-init.sh
 - Name: ssh-scan
   Description: Helper script for adding ssh host keys to known_hosts
   Path: tasks/ssh-scan.sh
+# /GopherCI tasks
+# Bender job tasks
+- Name: build-c9wks
+  Description: Task that launches and configures the Cloud9 instance
+  Path: tasks/build-c9wks.sh
+  Parameters:
+  - Name: KEYNAME
+    Value: bender
+- Name: ls
+  Description: the standard Unix ls, for testing
+  Path: /usr/bin/ls
+- Name: fail
+  Description: task that always fails, for debugging
+  Path: /bin/false
+# /Bender job tasks
 
 # If a job doesn't specify otherwise, these are the defaults for StatusChannel
 # and channels where jobs can be run
